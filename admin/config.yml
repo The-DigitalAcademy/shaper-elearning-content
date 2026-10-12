@@ -18,7 +18,7 @@ collections:
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Type, name: type, widget: select, options: ['page', 'assignment', 'chapter', 'quiz'] }
-      - { label: Description, name: description, widget: richtext }
+      - { label: Description, name: description, widget: richtext, required: false }
       - name: iframe_tag
         label: IFrame Tag
         widget: compute
