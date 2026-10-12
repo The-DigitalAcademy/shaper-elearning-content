@@ -8,11 +8,19 @@ media_folder: /public/media
 public_folder: /media
 
 collections:
-  - name: posts
-    label: Posts
-    label_singular: Post
-    folder: /content/posts
+  - name: content_items
+    label: Content Items
+    label_singular: Content Item
+    folder: /content/content_items
+    summary: '{{type | upper}} | {{title}}'
+    icon: library_books
+    preview_path: '/tools/html-editor?collection=content_items&field=content&slug={{slug}}'
     fields:
       - { label: Title, name: title, widget: string }
-      - { label: Date, name: date, widget: datetime, type: date }
-      - { label: Body, name: body, widget: richtext }
+      - { label: Type, name: type, widget: select, options: ['page', 'assignment', 'chapter', 'quiz'] }
+      - { label: Description, name: description, widget: richtext }
+      - name: iframe_tag
+        label: IFrame Tag
+        widget: compute
+        value: '<iframe title="{{fields.type}} - {{fields.title}}" src="https://simphiwenkabinde.github.io/sveltia-cms/tools/html-page?collection=content_items&slug={{slug}}&field=content"></iframe>'
+      - { label: Content (HTML), name: content, widget: code, allow_language_selection: false, default_language: html, preview: false}
