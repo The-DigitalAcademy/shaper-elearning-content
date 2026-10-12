@@ -22,5 +22,5 @@ collections:
       - name: iframe_tag
         label: IFrame Tag
         widget: compute
-        value: '<iframe title="{{fields.type}} - {{fields.title}}" src="https://simphiwenkabinde.github.io/sveltia-cms/tools/html-page?collection=content_items&slug={{slug}}&field=content"></iframe>'
+        value: '<iframe title="{{fields.type}} - {{fields.title}}" src="https://the-digitalacademy.github.io/shaper-elearning-content/tools/html-page/index.html?collection=content_items&slug={{fields.title | slugify}}&field=content"></iframe>'
       - { label: Content (HTML), name: content, widget: code, allow_language_selection: false, default_language: html, preview: false}

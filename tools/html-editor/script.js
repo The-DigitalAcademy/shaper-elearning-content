@@ -34,9 +34,7 @@ if (collection && slug && fieldName) {
         editor.setValue(parsedData[0][fieldName].code, -1);
       }
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => console.log(err));
 }
 
 const preview = document.getElementById("preview");
