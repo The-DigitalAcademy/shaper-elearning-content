@@ -1,7 +1,7 @@
 ---
 title: Scripting & Compiling Languages
 type: chapter
-description: bom
+description: ''
 iframe_tag: '<iframe title="chapter - Scripting & Compiling Languages" style="width: 100%;height: 100vh;" src="https://the-digitalacademy.github.io/shaper-elearning-content/tools/html-page/index.html?collection=content_items&slug=scripting-compiling-languages&field=content"></iframe>'
 content:
   code: |-
