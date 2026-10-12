@@ -8,6 +8,18 @@ description: |-
 iframe_tag: <iframe title="page - Concepts, Principles and Terminology of Programming Languages" src="https://simphiwenkabinde.github.io/sveltia-cms/tools/html-page?collection=content_items&slug=&field=content"></iframe>
 content:
   code: |-
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>My page</title>
+      <style>
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; line-height: 1.5; }
+        h1 { margin-top: 0; }
+        button { padding: .5rem 1rem; border: 0; border-radius: 6px; background: #4f46e5; color: #fff; cursor: pointer; }
+      </style>
+    </head>
+    <body>
     <p>Programming languages are at the heart of the digital world, powering
       everything from simple mobile apps to advanced Artificial Intelligence
       systems. Understanding programming is not just about writing code—it’s about
@@ -202,5 +214,7 @@ content:
       to create efficient, scalable, and meaningful solutions while adapting to
       evolving technologies and contributing effectively in modern digital
       environments.</p>
+    </body>
+    </html>
   lang: html
 ---
