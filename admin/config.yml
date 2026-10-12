@@ -23,4 +23,4 @@ collections:
         label: IFrame Tag
         widget: compute
         value: '<iframe title="{{fields.type}} - {{fields.title}}" src="https://the-digitalacademy.github.io/shaper-elearning-content/tools/html-page/index.html?collection=content_items&slug={{fields.title | slugify}}&field=content"></iframe>'
-      - { label: Content (HTML), name: content, widget: code, allow_language_selection: false, default_language: html, preview: false}
+      - { label: Content (HTML), name: content, widget: code, allow_language_selection: false, default_language: html, preview: false, required: false}
