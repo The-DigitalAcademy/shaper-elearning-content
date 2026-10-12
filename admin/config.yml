@@ -5,7 +5,7 @@ backend:
   repo: The-DigitalAcademy/shaper-elearning-content
 
 media_folder: /media
-public_folder: /media
+public_folder: /shaper-elearning-content/media
 
 collections:
   - name: content_items
