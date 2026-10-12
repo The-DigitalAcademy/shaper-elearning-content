@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>HTML Editor</title>
+<script src="https://cdn.tailwindcss.com/3.4.17"></script>
+<script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
+<script>tailwind.config = { darkMode: 'media' };</script>
+<style>
+  :root { box-sizing: border-box; padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+  html, body { height: 100%; margin: 0; }
+  #editor { position: absolute; inset: 0; font-size: 14px; }
+</style>
+</head>
+<body class="bg-slate-100 text-slate-800 dark:bg-slate-950 dark:text-slate-200">
+<div class="flex h-full flex-col">
+
+  <header class="flex items-center justify-between gap-3 border-b border-slate-300 bg-white px-4 py-2 dark:border-slate-800 dark:bg-slate-900">
+    <h1 class="text-sm font-semibold">HTML editor</h1>
+    <div class="flex items-center gap-2">
+      <button id="format" title="Format code (Shift+Alt+F)" class="rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:text-slate-300 dark:hover:bg-slate-800">Format</button>
+      <button id="reset" class="rounded-md px-3 py-1.5 text-sm text-slate-600 hover:bg-slate-100 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:text-slate-300 dark:hover:bg-slate-800">Reset</button>
+      <button id="copy" class="min-w-[6.5rem] rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-medium text-white hover:bg-indigo-500 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400 focus-visible:ring-offset-2">Copy code</button>
+    </div>
+  </header>
+
+  <main class="flex min-h-0 flex-1 flex-col md:flex-row">
+    <section class="flex min-h-0 min-w-0 flex-col" style="flex: 0 0 var(--split, 50%)">
+      <div class="flex items-center justify-between border-b border-slate-300 bg-slate-50 px-4 py-1.5 text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+        <span>Code</span>
+        <span class="hidden sm:inline">Ctrl+Space autocomplete · Ctrl+F find · Ctrl+H replace · Ctrl+/ comment</span>
+      </div>
+      <div class="relative min-h-0 flex-1"><div id="editor"></div></div>
+      <div class="flex items-center justify-between gap-3 border-t border-slate-300 bg-slate-50 px-4 py-1 text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">
+        <span id="status">Ln 1, Col 1</span>
+        <div class="flex items-center gap-1">
+          <button id="wrap" class="rounded px-2 py-0.5 hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:hover:bg-slate-800">Wrap: off</button>
+          <button id="fontDown" aria-label="Smaller text" class="rounded px-2 py-0.5 hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:hover:bg-slate-800">A−</button>
+          <button id="fontUp" aria-label="Larger text" class="rounded px-2 py-0.5 hover:bg-slate-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:hover:bg-slate-800">A+</button>
+        </div>
+      </div>
+    </section>
+
+    <div id="divider" role="separator" aria-label="Resize panels" tabindex="0" class="relative h-1.5 w-full shrink-0 cursor-row-resize touch-none bg-slate-300 outline-none hover:bg-indigo-500 focus-visible:bg-indigo-500 md:h-auto md:w-1.5 md:cursor-col-resize dark:bg-slate-800 dark:hover:bg-indigo-500">
+      <span class="absolute -inset-y-1.5 inset-x-0 md:-inset-x-1.5 md:inset-y-0"></span>
+    </div>
+
+    <section class="flex min-h-0 min-w-0 flex-1 flex-col">
+      <div class="border-b border-slate-300 bg-slate-50 px-4 py-1.5 text-xs text-slate-500 dark:border-slate-800 dark:bg-slate-900 dark:text-slate-400">Preview · click in the page to edit it directly</div>
+      <div id="tools" class="flex flex-wrap items-center gap-0.5 border-b border-slate-300 bg-white px-2 py-1 dark:border-slate-800 dark:bg-slate-900">
+        <select id="block" aria-label="Text style" class="mr-1 h-7 rounded border border-slate-300 bg-white px-1 text-sm text-slate-700 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-200">
+          <option value="p">Paragraph</option><option value="h1">Heading 1</option><option value="h2">Heading 2</option><option value="h3">Heading 3</option>
+        </select>
+      </div>
+      <div id="linkbar" class="hidden items-center gap-2 border-b border-slate-300 bg-white px-2 py-1 dark:border-slate-800 dark:bg-slate-900">
+        <input id="linkUrl" type="text" placeholder="https://example.com" class="min-w-0 flex-1 rounded border border-slate-300 bg-white px-2 py-1 text-sm text-slate-800 focus:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 dark:border-slate-700 dark:bg-slate-800 dark:text-slate-100">
+        <button id="linkApply" class="rounded bg-indigo-600 px-2 py-1 text-sm text-white hover:bg-indigo-500">Apply</button>
+        <button id="linkRemove" class="rounded px-2 py-1 text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-800">Remove link</button>
+      </div>
+      <iframe id="preview" title="Preview" sandbox="allow-scripts allow-modals allow-forms" class="min-h-0 w-full flex-1 bg-white"></iframe>
+    </section>
+  </main>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/ace.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/mode-html.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/mode-css.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/mode-javascript.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/theme-chrome.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/theme-tomorrow_night.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/ext-language_tools.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/ext-searchbox.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.32.9/ext-beautify.min.js"></script>
+<script src="./script.js"></script>
+</body>
+</html>
