@@ -14,7 +14,7 @@ collections:
     folder: /content/content_items
     summary: '{{type | upper}} | {{title}}'
     icon: library_books
-    preview_path: '/tools/html-editor?collection=content_items&field=content&slug={{slug}}'
+    preview_path: '/shaper-elearning-content/tools/html-editor?collection=content_items&field=content&slug={{slug}}'
     fields:
       - { label: Title, name: title, widget: string }
       - { label: Type, name: type, widget: select, options: ['page', 'assignment', 'chapter', 'quiz'] }
