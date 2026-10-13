@@ -19,6 +19,8 @@ content:
       </style>
     </head>
     <body>
+      
+      <img src="https://the-digitalacademy.github.io/shaper-elearning-content/media/01-thinking-like-a-developer.png"/>
     <p>Programming languages are at the heart of the digital world, powering
       everything from simple mobile apps to advanced Artificial Intelligence
       systems. Understanding programming is not just about writing code—it’s about
