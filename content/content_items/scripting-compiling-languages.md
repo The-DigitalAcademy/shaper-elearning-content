@@ -5,6 +5,18 @@ description: ''
 iframe_tag: '<iframe title="book chapter - Scripting & Compiling Languages" style="width: 100%;height: 100vh;" src="https://the-digitalacademy.github.io/shaper-elearning-content/tools/html-page/index.html?collection=content_items&slug=scripting-compiling-languages&field=content"></iframe>'
 content:
   code: |-
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8">
+      <title>My page</title>
+      <style>
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; line-height: 1.5; }
+        h1 { margin-top: 0; }
+        button { padding: .5rem 1rem; border: 0; border-radius: 6px; background: #4f46e5; color: #fff; cursor: pointer; }
+      </style>
+    </head>
+    <body>
     <h3 style="color: #111;">Scripting &amp; Compiling Languages</h3>
     <p>Not all programming languages are the same—each is designed with specific
       strengths and use cases in mind. As a developer, choosing the right language
@@ -63,5 +75,7 @@ content:
       <li>Python</li>
       <li>Virtual Basic (VB)</li>
     </ul>
+    </body>
+    </html>
   lang: html
 ---
