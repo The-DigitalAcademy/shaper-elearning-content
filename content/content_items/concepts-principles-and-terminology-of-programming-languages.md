@@ -20,9 +20,9 @@ content:
     </head>
     <body>
       
-      <img src="https://the-digitalacademy.github.io/shaper-elearning-content/media/01-thinking-like-a-developer.png"/>
+      <img src="https://the-digitalacademy.github.io/shaper-elearning-content/media/01-thinking-like-a-developer.png">
     <p>Programming languages are at the heart of the digital world, powering
-      everything from simple mobile apps to advanced Artificial Intelligence
+      ever ahfbsheffything from simple mobile apps to advanced Artificial Intelligence
       systems. Understanding programming is not just about writing code—it’s about
       thinking logically, solving problems, and building solutions that improve how
       we live and work.</p>
