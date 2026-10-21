@@ -9,7 +9,7 @@ const url = `https://raw.githubusercontent.com/${REPO}/main/content/${collection
 fetch(url, {
   headers: {
     Authorization:
-      "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",
+      "token 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",
   },
 })
   .then((res) => res.text())
