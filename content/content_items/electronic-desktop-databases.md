@@ -15,20 +15,20 @@ content:
       <title>My page</title>
       <style>
         body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; line-height: 1.5; }
-        h1 { margin-top: 0; }
-        button { padding: .5rem 1rem; border: 0; border-radius: 6px; background: #4f46e5; color: #fff; cursor: pointer; }
       </style>
     </head>
     <body>
-    <div><img class="img-fluid"
-        style="display: block; margin-left: auto; margin-right: auto;"
-        role="presentation"
-        src="https://moodle.shaper.co.za/draftfile.php/848/user/draft/124286239/desktop-database-overview.jpg"
-        alt="" width="65%">
-      <p
+    <div>
+        <p
         style="font-size: 0.8rem; letter-spacing: 0.05em; color: #6b7280; margin-bottom: 8px; margin-top: 8px; text-align: center;">
         Electronic desktop databases provide an accessible platform for organising
         and retrieving structured business data on a local computer.</p>
+      <img class="img-fluid"
+        style="display: block; margin-left: auto; margin-right: auto;"
+        role="presentation"
+        src="https://the-digitalacademy.github.io/shaper-elearning-content/media/image_eb647522.jpg"
+        alt="" width="65%">
+
     </div>
     <div style="border-top: 1px solid #e5e7eb; margin: 16px 0;"> </div>
     <h5
