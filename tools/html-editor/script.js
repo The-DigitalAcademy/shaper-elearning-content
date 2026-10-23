@@ -26,12 +26,7 @@ const REPO = "The-DigitalAcademy/shaper-elearning-content";
 const url = `https://raw.githubusercontent.com/${REPO}/main/content/${collection}/${slug}.md`;
 
 if (collection && slug && fieldName) {
-  fetch(url, {
-    headers: {
-      Authorization:
-        "token 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",
-    },
-  })
+  fetch(url)
     .then((res) => res.text())
     .then((text) => {
       const parsedData = jsyaml.loadAll(text);
