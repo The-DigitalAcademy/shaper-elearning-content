@@ -5,14 +5,11 @@ const DEFAULT_CODE = `<!DOCTYPE html>
   <title>My page</title>
   <style>
     body { font-family: system-ui, sans-serif; margin: 0; padding: 2rem; line-height: 1.5; }
-    h1 { margin-top: 0; }
-    button { padding: .5rem 1rem; border: 0; border-radius: 6px; background: #4f46e5; color: #fff; cursor: pointer; }
   </style>
 </head>
 <body>
-  <h1>Hello, world</h1>
+  <h1>Learning Content</h1>
   <p>Edit the code on the left and this page updates as you type.</p>
-  <button onclick="this.textContent = 'Clicked'">Click me</button>
 </body>
 </html>`;
 
